@@ -1,4 +1,4 @@
-# Next.js Movie Application
+# Screenly - Movie Application
 
 This is a Next.js application that allows users to search for movies, view detailed information about them, and manage a list of favorites. It utilizes React, Zustand for state management, and bun as a package manager.
 
@@ -6,7 +6,7 @@ This is a Next.js application that allows users to search for movies, view detai
 
 **Prerequisites:**
 
-- Node.js (version X.X.X or higher)
+- Node.js (version 16.0.0 or higher)
 - bun installed globally (`bun install -g`)
 
 **Steps:**
@@ -36,7 +36,7 @@ bun run dev
 5. View the App:
    Open your browser and go to http://localhost:3000 to view the app.
 
-6. Note: you should create your own .env file like .env.example
+6. Note: you need to create your own .env file like .env.example
 
 ---
 
