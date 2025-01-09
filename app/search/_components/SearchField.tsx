@@ -2,7 +2,7 @@
 
 import Input from '@/components/ui/Input';
 import useUpdateQueryParamsWithDebounce from '@/hooks/useUpdateQueryParamsWithDebounce';
-import { useParams, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 
 const SearchField = () => {

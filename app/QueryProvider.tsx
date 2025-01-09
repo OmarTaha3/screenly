@@ -7,9 +7,7 @@ interface QueryProviderProps {
 }
 const QueryProvider = ({ children }: QueryProviderProps) => {
   return (
-    <QueryClientProvider client={queryClient}>
-      {children}
-    </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 };
 

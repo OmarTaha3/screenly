@@ -25,6 +25,7 @@ const toBase64 = (str: string) =>
     : window.btoa(str);
 
 interface ImageWithFallBackProps extends ImageProps {
+  alt: string;
   fallbackSrc?: string;
   isDarkTheme?: boolean;
 }
@@ -34,6 +35,7 @@ export const ImageWithFallBack = ({
   fallbackSrc = '/images/image-load-failed.png',
   isDarkTheme = true,
   loader,
+  alt,
   ...rest
 }: ImageWithFallBackProps) => {
   const [isError, setIsError] = useState(false);
@@ -46,6 +48,7 @@ export const ImageWithFallBack = ({
       blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(isDarkTheme))}`}
       placeholder="blur"
       onError={() => setIsError(true)}
+      alt={alt ?? 'image'}
     />
   );
 };

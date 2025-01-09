@@ -4,12 +4,14 @@ import MovieInfo from './_components/MovieInfo';
 import { internalAxios } from '@/config/axiosConfig';
 import { internalEndPoints } from '@/config/endPoints';
 
-const MovieDetailsPage = async ({ params }: { params: { id: string } }) => {
-  const movieId = params.id;
+const MovieDetailsPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
+  const { id: movieId } = await params;
   const { data } = await internalAxios.get(internalEndPoints.movieDetails, {
-    params: {
-      movieId,
-    },
+    params: { movieId },
   });
 
   return (

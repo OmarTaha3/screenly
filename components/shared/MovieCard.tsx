@@ -6,9 +6,10 @@ import { ImageWithFallBack } from './ImageWithFallBack';
 import ToggleFavButton from './ToggleFavButton';
 import { TEXTS } from '@/constants/text';
 import Tag from '../ui/Tag';
+import { MovieDetails } from '@/types/MovieDetails';
 
 interface MovieCardProps {
-  movie: GeneralMovie;
+  movie: GeneralMovie | MovieDetails;
 }
 const MovieCard = ({ movie }: MovieCardProps) => {
   const poster = getPosterPath(movie.poster_path);

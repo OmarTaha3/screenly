@@ -17,7 +17,9 @@ interface DirectorDetailsProps {
 const Director = ({ crew, isPending, isError, isSuccess }: DirectorProps) => {
   return (
     <div>
-      <h3 className="headerBorder relative mb-8 text-center md:text-left">Director</h3>
+      <h3 className="headerBorder relative mb-8 text-center md:text-left">
+        Director
+      </h3>
       {/* Render the skeleton loader while data is loading, Show an error message if data failed to load, otherwise render the director details */}
       {isPending && <DirectorSekelton />}
       {isError && (

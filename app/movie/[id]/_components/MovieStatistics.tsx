@@ -1,6 +1,5 @@
 import CircularProgressBar from '@/components/ui/CircularProgressBar';
 import Tag from '@/components/ui/Tag';
-import { genreLookup } from '@/constants/geners';
 import { MovieDetails } from '@/types/MovieDetails';
 
 interface MovieStatisticsProps {
@@ -19,7 +18,7 @@ const MovieStatistics = ({ movie }: MovieStatisticsProps) => {
         />
         <div className="flex flex-wrap items-start gap-3">
           {movie?.genres?.map((gener) => (
-            <Tag key={gener.id} tagName={genreLookup[gener.id]} />
+            <Tag key={gener.id} tagName={gener.name} />
           ))}{' '}
         </div>
       </div>{' '}

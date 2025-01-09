@@ -9,3 +9,8 @@ export const getCast = async (movieId: string) => {
   });
   return response.data;
 };
+
+export const getAllGeners = async () => {
+  const response = await internalAxios.get(internalEndPoints.allGeners);
+  return response.data;
+};

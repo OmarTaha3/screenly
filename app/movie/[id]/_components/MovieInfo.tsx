@@ -25,21 +25,21 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
 
   return (
     <section className="container relative z-10 mb-10">
-      <div className="-mt-40 xl:px-16 md:-mt-60 xl:-mt-80">
-        <div className="flex w-full flex-col lg:flex-row items-center  lg:items-stretch gap-8">
+      <div className="-mt-40 md:-mt-60 xl:-mt-80 xl:px-16">
+        <div className="flex w-full flex-col items-center gap-8 lg:flex-row lg:items-stretch">
           {/* Render the movie poster */}
           <MoviePoster
             poster={movie?.poster_path}
             title={movie.original_title}
           />
-          <div className="lg:w-3/5 space-y-10">
+          <div className="space-y-10 lg:w-3/5">
             {/* Render the movie title */}
             <h1 title={movie.title}>{movie.title}</h1>
             {/* Render movie statistics like ratings, duration, etc. */}
             <MovieStatistics movie={movie} />
             {/* Render the movie overview */}
             <p title={movie.overview}>{movie.overview}</p>
-            <div className="flex max-md:justify-center items-center gap-8">
+            <div className="flex items-center gap-8 max-md:justify-center">
               {/* Render the favorite button */}
               <div className="h-9 w-9">
                 <ToggleFavButton movie={movie} />

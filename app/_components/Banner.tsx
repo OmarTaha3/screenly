@@ -1,7 +1,6 @@
+import GenerHub from '@/components/shared/GenerTags';
 import WatchNowLink from '@/components/shared/WatchNowLink';
 import CircularProgressBar from '@/components/ui/CircularProgressBar';
-import Tag from '@/components/ui/Tag';
-import { genreLookup } from '@/constants/geners';
 import { TEXTS } from '@/constants/text';
 import { GeneralMovie } from '@/types/GeneralMovie';
 import { getPosterPath } from '@/utils/getPosterPath';
@@ -28,9 +27,7 @@ const Banner = ({ movie }: bannerProps) => {
 
       {/* Content container */}
       <div className="relative z-10 flex flex-col gap-8 lg:w-2/5">
-        <h1 title={movie?.original_title}>
-          {movie?.original_title}
-        </h1>
+        <h1 title={movie?.original_title}>{movie?.original_title}</h1>
 
         {/* Rating and genres */}
         <div className="text-whtie flex items-center gap-6">
@@ -41,11 +38,7 @@ const Banner = ({ movie }: bannerProps) => {
           />
 
           {/* Genre tags */}
-          <div className="flex flex-wrap items-start gap-3">
-            {movie?.genre_ids?.map((genreId) => (
-              <Tag key={genreId} tagName={genreLookup[genreId]} />
-            ))}{' '}
-          </div>
+          <GenerHub movie={movie} />
         </div>
 
         {/* Movie overview/description */}

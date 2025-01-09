@@ -1,12 +1,11 @@
+import { gener } from './gener';
+
 export interface MovieDetails {
   adult: boolean;
   backdrop_path: string | null;
   belongs_to_collection: null | object;
   budget: number;
-  genres: Array<{
-    id: number;
-    name: string;
-  }>;
+  genres: Array<gener>;
   homepage: string;
   id: number;
   imdb_id: string | null;
@@ -36,6 +35,7 @@ export interface MovieDetails {
   }>;
   status: string;
   tagline: string | null;
+  genre_ids: number[];
   title: string;
   video: boolean;
   vote_average: number;

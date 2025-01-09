@@ -13,7 +13,7 @@ import { useCallback, useEffect, useState } from 'react';
  */
 function useScroll(HEIGHT: number): boolean {
   const [scrolled, setScrolled] = useState(false);
-  
+
   /**
    * Scroll event handler that sets the 'scrolled' state based on the scroll position.
    *
@@ -30,9 +30,9 @@ function useScroll(HEIGHT: number): boolean {
     return () => {
       window.removeEventListener('scroll', scrollMonitor);
     };
-  }, [scrollMonitor]); 
+  }, [scrollMonitor]);
 
-  return scrolled; 
+  return scrolled;
 }
 
 export default useScroll;

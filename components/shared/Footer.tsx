@@ -1,7 +1,6 @@
 'use client';
 
 import cn from '@/utils/classNames';
-import { useEffect, useState } from 'react';
 import Nav from './Nav';
 import useScrollDirection from '@/hooks/useScrollDirection';
 

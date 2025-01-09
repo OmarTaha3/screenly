@@ -1,5 +1,4 @@
 'use client';
-import { cast } from '@/constants/cast';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';

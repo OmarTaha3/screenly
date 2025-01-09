@@ -28,17 +28,17 @@ function useScrollDirection(): boolean {
       if (window.scrollY > lastScrollY) {
         setIsScrollingDown(true);
       } else {
-        setIsScrollingDown(false); 
+        setIsScrollingDown(false);
       }
-      lastScrollY = window.scrollY; 
+      lastScrollY = window.scrollY;
     };
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); 
+  }, []);
 
-  return isScrollingDown; 
+  return isScrollingDown;
 }
 
 export default useScrollDirection;
