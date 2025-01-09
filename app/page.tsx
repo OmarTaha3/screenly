@@ -370,16 +370,16 @@ const res = {
 };
 
 export default async function Home() {
-  /*   const response = await internalAxios.get(internalEndPoints.popularMovies, {
+  const { data } = await internalAxios.get(internalEndPoints.popularMovies, {
     params: {
       page: 1,
     },
-  }); */
-
+  });
+  
   return (
     <main className="min-h-screen">
-      <Banner movie={res.results[0]} />
-      <TopMovies movies={res.results} />
+      <Banner movie={data.results[0]} />
+      <TopMovies movies={data.results} />
     </main>
   );
 }

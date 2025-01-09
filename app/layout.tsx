@@ -5,6 +5,7 @@ import Header from '@/components/shared/Header';
 import { homePage } from '@/constants/meta';
 import cn from '@/utils/classNames';
 import Footer from '@/components/shared/Footer';
+import QueryProvider from './QueryProvider';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -24,7 +25,7 @@ export default function RootLayout({
         className={cn('bg-background text-foreground', montserrat.className)}
       >
         <Header />
-        {children}
+        <QueryProvider>{children}</QueryProvider>
         <Footer />
       </body>
     </html>

@@ -3,12 +3,9 @@ import CircularProgressBar from '@/components/ui/CircularProgressBar';
 import Tag from '@/components/ui/Tag';
 import { genreLookup } from '@/constants/geners';
 import { TEXTS } from '@/constants/text';
-import PlayIcon from '@/public/icons/PlayIcon';
-import { ROUTES } from '@/routes';
 import { GeneralMovie } from '@/types/GeneralMovie';
 import { getPosterPath } from '@/utils/getPosterPath';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 
 interface bannerProps {
@@ -31,7 +28,7 @@ const Banner = ({ movie }: bannerProps) => {
 
       {/* Content container */}
       <div className="relative z-10 flex flex-col gap-8 lg:w-2/5">
-        <h1 title={movie?.original_title} className="line-clamp-3">
+        <h1 title={movie?.original_title}>
           {movie?.original_title}
         </h1>
 

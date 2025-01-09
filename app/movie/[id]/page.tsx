@@ -2,6 +2,8 @@ import React from 'react';
 import Banner from './_components/Banner';
 import { MovieDetails } from '@/types/MovieDetails';
 import MovieInfo from './_components/MovieInfo';
+import { internalAxios } from '@/config/axios-config';
+import { internalEndPoints } from '@/config/endPoints';
 
 const movie: MovieDetails = {
   adult: false,
@@ -59,11 +61,20 @@ const movie: MovieDetails = {
   vote_average: 8.7,
   vote_count: 27455,
 };
-const MovieDetailsPage = () => {
+const MovieDetailsPage = async ({ params }: { params: { id: string } }) => {
+  const movieId = params.id;
+
+  const { data } = await internalAxios.get(internalEndPoints.movieDetails, {
+    params: {
+      movieId,
+    },
+  });
+
+
   return (
     <main>
-      <Banner backdrop={movie?.backdrop_path} title={movie?.original_title} />
-      <MovieInfo movie={movie} />
+      <Banner backdrop={data?.backdrop_path} title={data?.original_title} />
+      <MovieInfo movie={data} />
     </main>
   );
 };
