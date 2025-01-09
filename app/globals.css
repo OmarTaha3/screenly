@@ -3,19 +3,40 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000;
+  --foreground: #fff;
+  --primary: #02235f;
+  /*   --secondary: #0ba7da;
+ */
+  --secondary: rgb(255, 57, 57);
+
+  --mainBrightness: 1.1;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+::-webkit-scrollbar {
+  @apply w-1.5;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-[4px] bg-secondary;
+}
+
+h1 {
+  @apply text-xl font-medium sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+}
+
+h2 {
+  @apply text-lg font-medium sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl;
+}
+
+h3 {
+  @apply text-base font-medium sm:text-lg md:text-xl lg:text-2xl xl:text-3xl;
+}
+
+.headerBorder {
+  @apply after:absolute after:-bottom-4 after:md:left-0 after:left-1/2 after:max-md:-translate-x-1/2 after:h-1 after:w-20 after:rounded-md after:bg-secondary;
 }

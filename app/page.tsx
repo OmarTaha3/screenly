@@ -1,101 +1,385 @@
-import Image from "next/image";
+import Banner from '@/app/_components/Banner';
+import { internalAxios } from '@/config/axios-config';
+import { internalEndPoints } from '@/config/endPoints';
+import TopMovies from './_components/TopMovies';
 
-export default function Home() {
+const banner = {
+  adult: false,
+  backdrop_path: '/euYIwmwkmz95mnXvufEmbL6ovhZ.jpg',
+  genre_ids: [28, 12, 18],
+  id: 558449,
+  original_language: 'en',
+  original_title: 'Gladiator II',
+  overview:
+    'Years before witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius is forced to enter the Colosseum before his home is conquered by the tyrannical Emperors who now lead Rome with an iron fist. With rage in his heart and the future of the Empire at stake, Lucius must look to his past to find strength and honor to return the glory of Rome to its people.',
+  popularity: 4201.992,
+  poster_path: '/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg',
+  release_date: '2024-11-05',
+  title: 'Gladiator II',
+  video: false,
+  vote_average: 6.8,
+  vote_count: 2104,
+};
+
+const res = {
+  page: 1,
+  results: [
+    {
+      adult: false,
+      backdrop_path: '/zfbjgQE1uSd9wiPTX4VzsLi0rGG.jpg',
+      genre_ids: [18, 80],
+      id: 278,
+      original_language: 'en',
+      original_title: 'The Shawshank Redemption',
+      overview:
+        'Imprisoned in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.',
+      popularity: 174.5,
+      poster_path: '/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg',
+      release_date: '1994-09-23',
+      title: 'The Shawshank Redemption',
+      video: false,
+      vote_average: 8.708,
+      vote_count: 27453,
+    },
+    {
+      adult: false,
+      backdrop_path: '/tmU7GeKVybMWFButWEGl2M4GeiP.jpg',
+      genre_ids: [18, 80],
+      id: 238,
+      original_language: 'en',
+      original_title: 'The Godfather',
+      overview:
+        'Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.',
+      popularity: 205.645,
+      poster_path: '/3bhkrj58Vtu7enYsRolD1fZdja1.jpg',
+      release_date: '1972-03-14',
+      title: 'The Godfather',
+      video: false,
+      vote_average: 8.69,
+      vote_count: 20835,
+    },
+    {
+      adult: false,
+      backdrop_path: '/kGzFbGhp99zva6oZODW5atUtnqi.jpg',
+      genre_ids: [18, 80],
+      id: 240,
+      original_language: 'en',
+      original_title: 'The Godfather Part II',
+      overview:
+        'In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.',
+      popularity: 92.082,
+      poster_path: '/hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg',
+      release_date: '1974-12-20',
+      title: 'The Godfather Part II',
+      video: false,
+      vote_average: 8.571,
+      vote_count: 12578,
+    },
+    {
+      adult: false,
+      backdrop_path: '/zb6fM1CX41D9rF9hdgclu0peUmy.jpg',
+      genre_ids: [18, 36, 10752],
+      id: 424,
+      original_language: 'en',
+      original_title: "Schindler's List",
+      overview:
+        'The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.',
+      popularity: 93.643,
+      poster_path: '/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg',
+      release_date: '1993-12-15',
+      title: "Schindler's List",
+      video: false,
+      vote_average: 8.6,
+      vote_count: 16001,
+    },
+    {
+      adult: false,
+      backdrop_path: '/bxgTSUenZDHNFerQ1whRKplrMKF.jpg',
+      genre_ids: [18],
+      id: 389,
+      original_language: 'en',
+      original_title: '12 Angry Men',
+      overview:
+        "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.",
+      popularity: 53.282,
+      poster_path: '/ow3wq89wM8qd5X7hWKxiRfsFf9C.jpg',
+      release_date: '1957-04-10',
+      title: '12 Angry Men',
+      video: false,
+      vote_average: 8.5,
+      vote_count: 8776,
+    },
+    {
+      adult: false,
+      backdrop_path: '/6oaL4DP75yABrd5EbC4H2zq5ghc.jpg',
+      genre_ids: [16, 10751, 14],
+      id: 129,
+      original_language: 'ja',
+      original_title: '千と千尋の神隠し',
+      overview:
+        'A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.',
+      popularity: 109.332,
+      poster_path: '/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg',
+      release_date: '2001-07-20',
+      title: 'Spirited Away',
+      video: false,
+      vote_average: 8.537,
+      vote_count: 16667,
+    },
+    {
+      adult: false,
+      backdrop_path: '/90ez6ArvpO8bvpyIngBuwXOqJm5.jpg',
+      genre_ids: [35, 18, 10749],
+      id: 19404,
+      original_language: 'hi',
+      original_title: 'दिलवाले दुल्हनिया ले जायेंगे',
+      overview:
+        'Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.',
+      popularity: 40.789,
+      poster_path: '/lfRkUr7DYdHldAqi3PwdQGBRBPM.jpg',
+      release_date: '1995-10-20',
+      title: 'Dilwale Dulhania Le Jayenge',
+      video: false,
+      vote_average: 8.5,
+      vote_count: 4450,
+    },
+    {
+      adult: false,
+      backdrop_path: '/x5f2uTfw0Pqc5QI4ch5AHICee2o.jpg',
+      genre_ids: [18, 28, 80, 53],
+      id: 155,
+      original_language: 'en',
+      original_title: 'The Dark Knight',
+      overview:
+        'Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.',
+      popularity: 136.32,
+      poster_path: '/qJ2tW6WMUDux911r6m7haRef0WH.jpg',
+      release_date: '2008-07-16',
+      title: 'The Dark Knight',
+      video: false,
+      vote_average: 8.5,
+      vote_count: 33173,
+    },
+    {
+      adult: false,
+      backdrop_path: '/vxJ08SvwomfKbpboCWynC3uqUg4.jpg',
+      genre_ids: [14, 18, 80],
+      id: 497,
+      original_language: 'en',
+      original_title: 'The Green Mile',
+      overview:
+        "A supernatural tale set on death row in a Southern prison, where gentle giant John Coffey possesses the mysterious power to heal people's ailments. When the cell block's head guard, Paul Edgecomb, recognizes Coffey's miraculous gift, he tries desperately to help stave off the condemned man's execution.",
+      popularity: 81.841,
+      poster_path: '/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg',
+      release_date: '1999-12-10',
+      title: 'The Green Mile',
+      video: false,
+      vote_average: 8.507,
+      vote_count: 17630,
+    },
+    {
+      adult: false,
+      backdrop_path: '/x6skktR5OS99lAX4JhmjCQYq490.jpg',
+      genre_ids: [35, 53, 18],
+      id: 496243,
+      original_language: 'ko',
+      original_title: '기생충',
+      overview:
+        "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
+      popularity: 109.167,
+      poster_path: '/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg',
+      release_date: '2019-05-30',
+      title: 'Parasite',
+      video: false,
+      vote_average: 8.5,
+      vote_count: 18456,
+    },
+    {
+      adult: false,
+      backdrop_path: '/suaEOtk1N1sgg2MTM7oZd2cfVp3.jpg',
+      genre_ids: [53, 80],
+      id: 680,
+      original_language: 'en',
+      original_title: 'Pulp Fiction',
+      overview:
+        "A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time.",
+      popularity: 127.224,
+      poster_path: '/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg',
+      release_date: '1994-09-10',
+      title: 'Pulp Fiction',
+      video: false,
+      vote_average: 8.5,
+      vote_count: 28118,
+    },
+    {
+      adult: false,
+      backdrop_path: '/8x9iKH8kWA0zdkgNdpAew7OstYe.jpg',
+      genre_ids: [16, 10749, 18],
+      id: 372058,
+      original_language: 'ja',
+      original_title: '君の名は。',
+      overview:
+        'High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen randomly, and the two must adjust their lives around each other.',
+      popularity: 74.911,
+      poster_path: '/vfJFJPepRKapMd5G2ro7klIRysq.jpg',
+      release_date: '2016-08-26',
+      title: 'Your Name.',
+      video: false,
+      vote_average: 8.485,
+      vote_count: 11484,
+    },
+    {
+      adult: false,
+      backdrop_path: '/5JrZAtyk3LwiiAWLW0kwz41XZJC.jpg',
+      genre_ids: [12, 14, 28],
+      id: 122,
+      original_language: 'en',
+      original_title: 'The Lord of the Rings: The Return of the King',
+      overview:
+        'As armies mass for a final battle that will decide the fate of the world--and powerful, ancient forces of Light and Dark compete to determine the outcome--one member of the Fellowship of the Ring is revealed as the noble heir to the throne of the Kings of Men. Yet, the sole hope for triumph over evil lies with a brave hobbit, Frodo, who, accompanied by his loyal friend Sam and the hideous, wretched Gollum, ventures deep into the very dark heart of Mordor on his seemingly impossible quest to destroy the Ring of Power.​',
+      popularity: 152.238,
+      poster_path: '/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg',
+      release_date: '2003-12-17',
+      title: 'The Lord of the Rings: The Return of the King',
+      video: false,
+      vote_average: 8.5,
+      vote_count: 24445,
+    },
+    {
+      adult: false,
+      backdrop_path: '/mzfx54nfDPTUXZOG48u4LaEheDy.jpg',
+      genre_ids: [35, 18, 10749],
+      id: 13,
+      original_language: 'en',
+      original_title: 'Forrest Gump',
+      overview:
+        'A man with a low IQ has accomplished great things in his life and been present during significant historic events—in each case, far exceeding what anyone imagined he could do. But despite all he has achieved, his one true love eludes him.',
+      popularity: 136.448,
+      poster_path: '/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg',
+      release_date: '1994-06-23',
+      title: 'Forrest Gump',
+      video: false,
+      vote_average: 8.47,
+      vote_count: 27650,
+    },
+    {
+      adult: false,
+      backdrop_path: '/x4biAVdPVCghBlsVIzB6NmbghIz.jpg',
+      genre_ids: [37],
+      id: 429,
+      original_language: 'it',
+      original_title: 'Il buono, il brutto, il cattivo',
+      overview:
+        'While the Civil War rages on between the Union and the Confederacy, three men – a quiet loner, a ruthless hitman, and a Mexican bandit – comb the American Southwest in search of a strongbox containing $200,000 in stolen gold.',
+      popularity: 74.958,
+      poster_path: '/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg',
+      release_date: '1966-12-22',
+      title: 'The Good, the Bad and the Ugly',
+      video: false,
+      vote_average: 8.465,
+      vote_count: 8712,
+    },
+    {
+      adult: false,
+      backdrop_path: '/sJNNMCc6B7KZIY3LH3JMYJJNH5j.jpg',
+      genre_ids: [28, 18],
+      id: 346,
+      original_language: 'ja',
+      original_title: '七人の侍',
+      overview:
+        "A samurai answers a village's request for protection after he falls on hard times. The town needs protection from bandits, so the samurai gathers six others to help him teach the people how to defend themselves, and the villagers provide the soldiers with food.",
+      popularity: 43.509,
+      poster_path: '/iAq0sq42vKTLneVGqHn1D4GzgrM.jpg',
+      release_date: '1954-04-26',
+      title: 'Seven Samurai',
+      video: false,
+      vote_average: 8.5,
+      vote_count: 3735,
+    },
+    {
+      adult: false,
+      backdrop_path: '/7TF4p86ZafnxFuNqWdhpHXFO244.jpg',
+      genre_ids: [18, 80],
+      id: 769,
+      original_language: 'en',
+      original_title: 'GoodFellas',
+      overview:
+        'The true story of Henry Hill, a half-Irish, half-Sicilian Brooklyn kid who is adopted by neighbourhood gangsters at an early age and climbs the ranks of a Mafia family under the guidance of Jimmy Conway.',
+      popularity: 84.011,
+      poster_path: '/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg',
+      release_date: '1990-09-12',
+      title: 'GoodFellas',
+      video: false,
+      vote_average: 8.457,
+      vote_count: 12990,
+    },
+    {
+      adult: false,
+      backdrop_path: '/dlC0ed9Ugh3FzydnkBtV5lRXUu4.jpg',
+      genre_ids: [16, 18, 10752],
+      id: 12477,
+      original_language: 'ja',
+      original_title: '火垂るの墓',
+      overview:
+        'In the final months of World War II, 14-year-old Seita and his sister Setsuko are orphaned when their mother is killed during an air raid in Kobe, Japan. After a falling out with their aunt, they move into an abandoned bomb shelter. With no surviving relatives and their emergency rations depleted, Seita and Setsuko struggle to survive.',
+      popularity: 0.044,
+      poster_path: '/k9tv1rXZbOhH7eiCk378x61kNQ1.jpg',
+      release_date: '1988-04-16',
+      title: 'Grave of the Fireflies',
+      video: false,
+      vote_average: 8.457,
+      vote_count: 5621,
+    },
+    {
+      adult: false,
+      backdrop_path: '/zoVeIgKzGJzpdG6Gwnr7iOYfIMU.jpg',
+      genre_ids: [18, 10749],
+      id: 11216,
+      original_language: 'it',
+      original_title: 'Nuovo Cinema Paradiso',
+      overview:
+        "A filmmaker recalls his childhood, when he fell in love with the movies at his village's theater and formed a deep friendship with the theater's projectionist.",
+      popularity: 37.261,
+      poster_path: '/gCI2AeMV4IHSewhJkzsur5MEp6R.jpg',
+      release_date: '1988-11-17',
+      title: 'Cinema Paradiso',
+      video: false,
+      vote_average: 8.4,
+      vote_count: 4409,
+    },
+    {
+      adult: false,
+      backdrop_path: '/gavyCu1UaTaTNPsVaGXT6pe5u24.jpg',
+      genre_ids: [35, 18],
+      id: 637,
+      original_language: 'it',
+      original_title: 'La vita è bella',
+      overview:
+        'A touching story of an Italian book seller of Jewish ancestry who lives in his own little fairy tale. His creative and happy life would come to an abrupt halt when his entire family is deported to a concentration camp during World War II. While locked up he tries to convince his son that the whole thing is just a game.',
+      popularity: 53.447,
+      poster_path: '/74hLDKjD5aGYOotO6esUVaeISa2.jpg',
+      release_date: '1997-12-20',
+      title: 'Life Is Beautiful',
+      video: false,
+      vote_average: 8.449,
+      vote_count: 13105,
+    },
+  ],
+  total_pages: 494,
+  total_results: 9874,
+};
+
+export default async function Home() {
+  /*   const response = await internalAxios.get(internalEndPoints.popularMovies, {
+    params: {
+      page: 1,
+    },
+  }); */
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <main className="min-h-screen">
+      <Banner movie={res.results[0]} />
+      <TopMovies movies={res.results} />
+    </main>
   );
 }
