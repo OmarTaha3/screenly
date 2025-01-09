@@ -72,10 +72,16 @@ bun run dev
 
 ## Technologies Used
 
-- **Next.js**: Framework for building the app.
-- **React**: Frontend library for building UI components.
-- **Zustand**: State management library used to manage application state.
-- **Tailwind css**: For styling the app and ensuring modular, maintainable CSS.
+- **Next.js** (v15.1.3): Framework for building the app.
+- **React** (v19.0.0): Frontend library for building UI components.
+- **React Query** (v5.63.0): Library for fetching, caching, and syncing data in Client Side React applications.
+- **Zustand** (v5.0.3): State management library used to manage application state.
+- **Tailwind CSS**: For styling the app and ensuring modular, maintainable CSS.
+- **Axios** (v1.7.9): Promise-based HTTP client for making API requests.
+- **Swiper** (v11.2.0): Modern touch slider library used for creating carousels.
+- **clsx** (v2.1.1): Utility for constructing `className` strings conditionally.
+- **tailwind-merge** (v2.6.0): Utility for merging Tailwind CSS classes, handling conflicts.
+- **use-debounce** (v10.0.4): Custom React hook for debouncing function calls.
 - **TMDB API**: Used for fetching movie data (you can replace it with your API of choice).
 
 ---
