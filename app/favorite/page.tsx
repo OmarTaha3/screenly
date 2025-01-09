@@ -1,12 +1,12 @@
 import React from 'react';
 import Hero from './_components/Hero';
-import FavMovies from './_components/FavHub';
+import FavHub from './_components/FavHub';
 
 const FavoritePage = () => {
   return (
     <main>
       <Hero />
-{/*       <FavMovies /> */}
+      <FavHub />
     </main>
   );
 };

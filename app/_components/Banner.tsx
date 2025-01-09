@@ -4,7 +4,7 @@ import { genreLookup } from '@/constants/geners';
 import { TEXTS } from '@/constants/text';
 import PlayIcon from '@/public/icons/PlayIcon';
 import { ROUTES } from '@/routes';
-import {generalMovie} from '@/types/generalMovie';
+import { generalMovie } from '@/types/generalMovie';
 import { getPosterPath } from '@/utils/getPosterPath';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -53,10 +53,7 @@ const Banner = ({ movie }: bannerProps) => {
         </p>
 
         {/* Watch now button linking to the movie details page */}
-        <Link
-          href={ROUTES.MOVIE_DETAILS(movie.id)}
-          className="hover:brightness-main flex w-fit items-center gap-2 rounded-md bg-secondary px-6 py-2 capitalize text-foreground text-white transition"
-        >
+        <Link href={ROUTES.MOVIE_DETAILS(movie.id)} className="mainLink">
           <PlayIcon /> Watch now
         </Link>
       </div>

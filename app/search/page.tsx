@@ -1,7 +1,12 @@
 import React from 'react';
+import SearchField from './_components/SearchField';
 
 const SearchPage = () => {
-  return <div>SearchPage</div>;
+  return (
+    <main>
+      <SearchField />
+    </main>
+  );
 };
 
 export default SearchPage;

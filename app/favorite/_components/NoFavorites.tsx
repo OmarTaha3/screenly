@@ -1,3 +1,5 @@
+import { ROUTES } from '@/routes';
+import Link from 'next/link';
 import React from 'react';
 
 const NoFavorites = () => {
@@ -5,12 +7,12 @@ const NoFavorites = () => {
     <section className="flex flex-col items-center justify-center py-20">
       <span className="text-4xl text-gray-400">❤️</span>
       <h2 className="mt-4 text-2xl font-semibold">No Favorites Yet</h2>
-      <p className="mt-2 text-gray-500">
+      <p className="mt-2 px-12 text-center text-gray-500">
         Explore movies and add your favorites to this list!
       </p>
-      <button className="mt-4 rounded-full bg-primary px-6 py-2 text-white">
+      <Link href={ROUTES.HOME} className="mainLink mt-4">
         Start Exploring
-      </button>
+      </Link>
     </section>
   );
 };

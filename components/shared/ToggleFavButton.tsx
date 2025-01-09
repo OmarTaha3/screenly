@@ -5,6 +5,7 @@ import IconButton from '../ui/IconButton';
 import { generalMovie } from '@/types/generalMovie';
 import { useFavoriteMoviesStore } from '@/store/useFavoriteMovieStore';
 import cn from '@/utils/classNames';
+import FavButtonSekelton from '../sekelton/FavButtonSekelton';
 
 interface ToggleFavButtonProps {
   movie: generalMovie;
@@ -17,10 +18,7 @@ const ToggleFavButton = ({ movie }: ToggleFavButtonProps) => {
     (state) => state.toggleFavorite
   );
 
-  if (!hasHydrated)
-    return (
-      <div className="absolute right-2 top-2 z-10 h-9 w-9 rounded-full bg-black/30 transition" />
-    );
+  if (!hasHydrated) return <FavButtonSekelton />;
 
   return (
     <IconButton
