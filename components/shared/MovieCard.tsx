@@ -1,20 +1,24 @@
 import { ROUTES } from '@/routes';
-import { generalMovie } from '@/types/generalMovie';
+import { GeneralMovie } from '@/types/GeneralMovie';
 import { getPosterPath } from '@/utils/getPosterPath';
 import Link from 'next/link';
 import { ImageWithFallBack } from './ImageWithFallBack';
 import ToggleFavButton from './ToggleFavButton';
 import { TEXTS } from '@/constants/text';
+import Tag from '../ui/Tag';
 
 interface MovieCardProps {
-  movie: generalMovie;
+  movie: GeneralMovie;
 }
 const MovieCard = ({ movie }: MovieCardProps) => {
   const poster = getPosterPath(movie.poster_path);
   return (
     <div className="group relative overflow-clip rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-2xl">
       {/* Button to add/remove movie from favorite */}
-      <ToggleFavButton movie={movie} />
+      <ToggleFavButton
+        movie={movie}
+        containerClassName="absolute right-2 top-2 z-10"
+      />
 
       <Link href={ROUTES.MOVIE_DETAILS(movie.id)}>
         {/* Movie Poster */}
@@ -43,12 +47,14 @@ const MovieCard = ({ movie }: MovieCardProps) => {
           <p className="text-sm text-gray-300">
             Release Date: {new Date(movie.release_date).toLocaleDateString()}
           </p>
-          <p className="mt-2 flex items-center gap-1 text-sm font-medium">
-            <span className="rounded bg-secondary px-2 py-1 text-xs">
-              {movie.vote_average.toFixed(1)}
-            </span>
+          <div className="mt-2 flex items-center gap-2 text-sm font-medium">
+            <Tag
+              tagName={movie.vote_average.toFixed(1)}
+              variant="secondary"
+              className="text-xs"
+            />
             <span>{movie.vote_count} Votes</span>
-          </p>
+          </div>
         </div>
       </Link>
     </div>

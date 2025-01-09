@@ -1,8 +1,8 @@
 import MovieCard from '@/components/shared/MovieCard';
-import { generalMovie } from '@/types/generalMovie';
+import { GeneralMovie } from '@/types/GeneralMovie';
 
 interface TopMoviesProps {
-  movies: generalMovie[];
+  movies: GeneralMovie[];
 }
 const TopMovies = ({ movies }: TopMoviesProps) => {
   return (

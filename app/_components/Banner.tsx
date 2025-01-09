@@ -1,17 +1,18 @@
+import WatchNowLink from '@/components/shared/WatchNowLink';
 import CircularProgressBar from '@/components/ui/CircularProgressBar';
 import Tag from '@/components/ui/Tag';
 import { genreLookup } from '@/constants/geners';
 import { TEXTS } from '@/constants/text';
 import PlayIcon from '@/public/icons/PlayIcon';
 import { ROUTES } from '@/routes';
-import { generalMovie } from '@/types/generalMovie';
+import { GeneralMovie } from '@/types/GeneralMovie';
 import { getPosterPath } from '@/utils/getPosterPath';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 interface bannerProps {
-  movie: generalMovie;
+  movie: GeneralMovie;
 }
 
 const Banner = ({ movie }: bannerProps) => {
@@ -37,7 +38,10 @@ const Banner = ({ movie }: bannerProps) => {
         {/* Rating and genres */}
         <div className="text-whtie flex items-center gap-6">
           {/* Circular progress bar for movie rating */}
-          <CircularProgressBar percentage={5.758} className="shrink-0" />
+          <CircularProgressBar
+            percentage={movie.vote_average}
+            className="shrink-0"
+          />
 
           {/* Genre tags */}
           <div className="flex flex-wrap items-start gap-3">
@@ -53,9 +57,7 @@ const Banner = ({ movie }: bannerProps) => {
         </p>
 
         {/* Watch now button linking to the movie details page */}
-        <Link href={ROUTES.MOVIE_DETAILS(movie.id)} className="mainLink">
-          <PlayIcon /> Watch now
-        </Link>
+        <WatchNowLink id={movie.id} />
       </div>
     </section>
   );

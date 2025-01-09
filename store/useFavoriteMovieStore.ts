@@ -1,15 +1,16 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { generalMovie } from '@/types/generalMovie';
+import { GeneralMovie } from '@/types/GeneralMovie';
+import { MovieDetails } from '@/types/MovieDetails';
 
 interface FavoriteMoviesStore {
-  favoriteMovies: generalMovie[];
+  favoriteMovies: (GeneralMovie | MovieDetails)[];
   _hasHydrated: boolean; // Tracks hydration status
   setHasHydrated: (state: boolean) => void; // Setter for hydration status
-  addFavorite: (movie: generalMovie) => void;
+  addFavorite: (movie: GeneralMovie | MovieDetails) => void;
   removeFavorite: (movieId: number) => void;
   isFavorite: (movieId: number) => boolean;
-  toggleFavorite: (movie: generalMovie) => void;
+  toggleFavorite: (movie: GeneralMovie | MovieDetails) => void;
 }
 
 export const useFavoriteMoviesStore = create<FavoriteMoviesStore>()(
@@ -25,7 +26,7 @@ export const useFavoriteMoviesStore = create<FavoriteMoviesStore>()(
 
       favoriteMovies: [],
 
-      addFavorite: (movie: generalMovie) =>
+      addFavorite: (movie: GeneralMovie | MovieDetails) =>
         set((state) => ({
           favoriteMovies: [...state.favoriteMovies, movie], // Add movie to favorites
         })),
@@ -42,7 +43,7 @@ export const useFavoriteMoviesStore = create<FavoriteMoviesStore>()(
         return favoriteMovies.some((movie) => movie.id === movieId); // Check if movie is in favorites
       },
 
-      toggleFavorite: (movie: generalMovie) => {
+      toggleFavorite: (movie: GeneralMovie | MovieDetails) => {
         const { isFavorite, removeFavorite, addFavorite } = get();
         if (isFavorite(movie.id)) {
           removeFavorite(movie.id); // Remove if already a favorite

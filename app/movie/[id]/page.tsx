@@ -1,9 +1,9 @@
 import React from 'react';
 import Banner from './_components/Banner';
-import { movieDetails } from '@/types/movieDetails';
+import { MovieDetails } from '@/types/MovieDetails';
 import MovieInfo from './_components/MovieInfo';
 
-const movie: movieDetails = {
+const movie: MovieDetails = {
   adult: false,
   backdrop_path: '/zfbjgQE1uSd9wiPTX4VzsLi0rGG.jpg',
   belongs_to_collection: null,
@@ -63,7 +63,7 @@ const MovieDetailsPage = () => {
   return (
     <main>
       <Banner backdrop={movie?.backdrop_path} title={movie?.original_title} />
-      <MovieInfo />
+      <MovieInfo movie={movie} />
     </main>
   );
 };

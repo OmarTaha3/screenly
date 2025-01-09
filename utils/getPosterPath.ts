@@ -11,7 +11,7 @@
  * const posterUrl = getPosterPath('/path/to/poster.jpg');
  * console.log(posterUrl); // "https://image.tmdb.org/t/p/original/path/to/poster.jpg"
  */
-export const getPosterPath = (path: string): string => {
+export const getPosterPath = (path: string | null | undefined): string => {
   const baseUrl = process.env.NEXT_PUBLIC_TMDB_IMAGE_URL;
   return `${baseUrl}${path}`;
 };

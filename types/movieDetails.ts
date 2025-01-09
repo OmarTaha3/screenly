@@ -1,4 +1,4 @@
-export interface movieDetails {
+export interface MovieDetails {
   adult: boolean;
   backdrop_path: string | null;
   belongs_to_collection: null | object;
@@ -15,7 +15,7 @@ export interface movieDetails {
   original_title: string;
   overview: string;
   popularity: number;
-  poster_path: string | null;
+  poster_path: string;
   production_companies: Array<{
     id: number;
     logo_path: string | null;

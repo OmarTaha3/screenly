@@ -2,16 +2,21 @@
 
 import HeartIcon from '@/public/icons/HeartIcon';
 import IconButton from '../ui/IconButton';
-import { generalMovie } from '@/types/generalMovie';
+import { GeneralMovie } from '@/types/GeneralMovie';
 import { useFavoriteMoviesStore } from '@/store/useFavoriteMovieStore';
 import cn from '@/utils/classNames';
 import FavButtonSekelton from '../sekelton/FavButtonSekelton';
+import { MovieDetails } from '@/types/MovieDetails';
 
 interface ToggleFavButtonProps {
-  movie: generalMovie;
+  movie: GeneralMovie | MovieDetails;
+  containerClassName?: string;
 }
 
-const ToggleFavButton = ({ movie }: ToggleFavButtonProps) => {
+const ToggleFavButton = ({
+  movie,
+  containerClassName,
+}: ToggleFavButtonProps) => {
   const hasHydrated = useFavoriteMoviesStore((state) => state._hasHydrated);
   const isFav = useFavoriteMoviesStore((state) => state.isFavorite(movie.id));
   const toggleFavorite = useFavoriteMoviesStore(
@@ -24,7 +29,8 @@ const ToggleFavButton = ({ movie }: ToggleFavButtonProps) => {
     <IconButton
       icon={<HeartIcon />}
       className={cn(
-        'absolute right-2 top-2 z-10 transition',
+        'transition',
+        containerClassName,
         isFav ? 'text-secondary' : 'text-transparent'
       )}
       onClick={() => toggleFavorite(movie)}
