@@ -9,8 +9,7 @@
   /*   --secondary: #0ba7da;
  */
   --secondary: rgb(255, 57, 57);
-
-  --mainBrightness: 1.1;
+  --mainBrightness: 1.2;
 }
 
 ::-webkit-scrollbar {
@@ -46,5 +45,5 @@ h3 {
 }
 
 .mainLink {
-  @apply hover:brightness-main flex w-fit items-center gap-2 rounded-md bg-secondary px-6 py-2 capitalize text-foreground text-white transition;
+  @apply flex w-fit items-center gap-2 rounded-md bg-secondary px-6 py-2 capitalize text-foreground text-white transition hover:brightness-main;
 }

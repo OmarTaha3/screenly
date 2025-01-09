@@ -4,6 +4,7 @@ import { getPosterPath } from '@/utils/getPosterPath';
 import Link from 'next/link';
 import { ImageWithFallBack } from './ImageWithFallBack';
 import ToggleFavButton from './ToggleFavButton';
+import { TEXTS } from '@/constants/text';
 
 interface MovieCardProps {
   movie: generalMovie;
@@ -20,7 +21,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
         <div className="relative flex aspect-[2/3] items-center justify-center">
           <ImageWithFallBack
             src={poster}
-            alt={movie.title || 'Movie Poster'}
+            alt={movie.title || TEXTS.CARD_POSTER_ALT}
             fill
             loading="lazy"
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
