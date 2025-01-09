@@ -25,8 +25,7 @@ export const handleRequest = async <T>(
     if (error instanceof AxiosError) {
       status = error.response?.status || 500;
       message = error.response?.data?.error || 'Internal server error';
-    }
-    else if (error instanceof Error) {
+    } else if (error instanceof Error) {
       message = error.message;
     }
     return NextResponse.json({ error: message }, { status });

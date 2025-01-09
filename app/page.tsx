@@ -1,5 +1,5 @@
 import Banner from '@/app/_components/Banner';
-import { internalAxios } from '@/config/axios-config';
+import { internalAxios } from '@/config/axiosConfig';
 import { internalEndPoints } from '@/config/endPoints';
 import TopMovies from './_components/TopMovies';
 
@@ -375,7 +375,7 @@ export default async function Home() {
       page: 1,
     },
   });
-  
+
   return (
     <main className="min-h-screen">
       <Banner movie={data.results[0]} />

@@ -10,7 +10,7 @@ const MoviePoster = ({ poster, title }: MoviePoster) => {
   const posterPath = getPosterPath(poster);
 
   return (
-    <div className="relative flex w-4/5 shrink-0 items-center justify-center md:w-2/5">
+    <div className="relative flex aspect-[2/3] w-4/5 shrink-0 items-center justify-center md:w-2/5">
       <ImageWithFallBack
         src={posterPath}
         alt={title || TEXTS.CARD_POSTER_ALT}

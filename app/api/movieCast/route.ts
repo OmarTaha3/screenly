@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
 
   return handleRequest(async () => {
     const response = await movieAxios.get(
-      externalEndPoints.movieDetails(movieId)
+      externalEndPoints.movieCast(movieId)
     );
     return { data: response.data, status: response.status };
   });

@@ -1,4 +1,4 @@
-import { movieAxios } from '@/config/axios-config';
+import { movieAxios } from '@/config/axiosConfig';
 import { handleRequest } from '../../../utils/handleRequest';
 import { externalEndPoints } from '@/config/endPoints';
 
