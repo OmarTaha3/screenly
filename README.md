@@ -50,12 +50,12 @@ bun run dev
 ### 2. Movie Details Page
 
 - When a user clicks on a movie, it navigates to a detailed page displaying:
-  - Movie synopsis
-  - Genre
-  - Director
-  - Cast
-  - Runtime
-  - Ratings
+- Movie synopsis
+- Genre
+- Director
+- Cast
+- Runtime
+- Ratings
 
 ### 3. Favorite Movies
 
