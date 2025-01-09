@@ -14,7 +14,7 @@ const SearchResults = ({ movies }: SearchResultProps) => {
       </h2>
 
       {movies.length === 0 ? (
-        <p className="mt-5 text-center text-lg text-secondary">
+        <p className="mt-5 text-center text-lg text-primary">
           No movies found.
         </p>
       ) : (

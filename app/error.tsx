@@ -11,7 +11,7 @@ const GlobalError = () => {
         <h2 className="mt-8 text-xl font-black lg:text-5xl">
           Oops! Something went wrong
         </h2>
-        <p className="my-2 text-sm text-secondary lg:text-base">
+        <p className="my-2 text-sm text-primary lg:text-base">
           We&apos;re having trouble processing your request right now. Please
           try again later.
         </p>

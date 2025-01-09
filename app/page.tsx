@@ -12,6 +12,8 @@ export default async function Home({ searchParams }: HomeProps) {
   const { page: searchedPage } = await searchParams;
   const page = parseInt(searchedPage || '1', 10);
   const { data } = await getAllMovies(page);
+
+  console.log({ data });
   return (
     <main className="min-h-screen">
       <Banner movie={data.results[0]} />

@@ -5,10 +5,7 @@
 :root {
   --background: #000;
   --foreground: #fff;
-  --primary: #02235f;
-  /*   --secondary: #0ba7da;
- */
-  --secondary: rgb(255, 57, 57);
+  --primary: #ff3939;
   --mainBrightness: 1.2;
 }
 
@@ -21,7 +18,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply rounded-[4px] bg-secondary;
+  @apply rounded-[4px] bg-primary;
 }
 
 h1 {
@@ -37,7 +34,7 @@ h3 {
 }
 
 .headerBorder {
-  @apply after:absolute after:-bottom-4 after:left-1/2 after:h-1 after:w-20 after:rounded-md after:bg-secondary after:max-md:-translate-x-1/2 after:md:left-0;
+  @apply after:absolute after:-bottom-4 after:left-1/2 after:h-1 after:w-20 after:rounded-md after:bg-primary after:max-md:-translate-x-1/2 after:md:left-0;
 }
 
 .movieCards-container {
@@ -45,5 +42,5 @@ h3 {
 }
 
 .mainLink {
-  @apply flex w-fit items-center gap-2 rounded-md bg-secondary px-6 py-2 capitalize text-foreground text-white transition hover:brightness-main;
+  @apply flex w-fit items-center gap-2 rounded-md bg-primary px-6 py-2 capitalize text-foreground text-white transition hover:brightness-main;
 }

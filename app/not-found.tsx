@@ -14,7 +14,7 @@ const NotFound = () => {
         <h2 className="mt-8 text-xl font-black lg:text-5xl">
           Oops! Something went wrong
         </h2>
-        <p className="my-2 text-sm text-secondary lg:text-base">
+        <p className="my-2 text-sm text-primary lg:text-base">
           Page dosen&apos;t exist
         </p>
         <Link href={ROUTES.HOME} className="mainLink mx-auto mt-4">

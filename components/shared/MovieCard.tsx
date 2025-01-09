@@ -51,7 +51,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
           <div className="mt-2 flex items-center gap-2 text-sm font-medium">
             <Tag
               tagName={movie.vote_average.toFixed(1)}
-              variant="secondary"
+              variant="primary"
               className="text-xs"
             />
             <span>{movie.vote_count} Votes</span>

@@ -23,7 +23,7 @@ const Header = () => {
         className={cn(
           'flex items-center justify-center rounded-xl border bg-transparent px-6 transition md:justify-between',
           scrolled
-            ? 'border-secondary bg-background'
+            ? 'border-primary bg-background'
             : 'border-transparent bg-transparent'
         )}
       >
@@ -33,7 +33,7 @@ const Header = () => {
           href={ROUTES.HOME}
           className="text-3xl font-bold"
         >
-          Screen<span className="text-secondary">Ly</span>
+          Screen<span className="text-primary">Ly</span>
         </Link>
 
         {/* Renders the navigation menu component. */}

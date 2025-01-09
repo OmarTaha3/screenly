@@ -60,7 +60,7 @@ const Pagination = ({ totalPages }: PaginationProps) => {
           className={cn(
             'flex h-8 min-w-[32px] shrink-0 items-center justify-center truncate rounded-full border p-1 text-sm',
             {
-              'bg-secondary text-white': currentPage === page,
+              'bg-primary text-white': currentPage === page,
             }
           )}
           onClick={() => typeof page === 'number' && onPageChange(page)}

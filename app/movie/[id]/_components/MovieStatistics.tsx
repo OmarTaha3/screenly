@@ -22,7 +22,7 @@ const MovieStatistics = ({ movie }: MovieStatisticsProps) => {
           ))}{' '}
         </div>
       </div>{' '}
-      <Tag tagName={`${hours}h ${minutes}m`} variant="secondary" />
+      <Tag tagName={`${hours}h ${minutes}m`} variant="primary" />
     </div>
   );
 };

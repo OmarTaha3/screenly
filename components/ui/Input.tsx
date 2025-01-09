@@ -10,7 +10,7 @@ const Input = ({
     <input
       type="text"
       placeholder={placeholder}
-      className="border-forground h-14 w-full rounded-md border bg-background p-4 ring ring-transparent transition-all hover:border-secondary focus:border-secondary focus:outline-none focus:ring-secondary"
+      className="border-forground h-14 w-full rounded-md border bg-background p-4 ring ring-transparent transition-all hover:border-primary focus:border-primary focus:outline-none focus:ring-primary"
       {...props}
     />
   );

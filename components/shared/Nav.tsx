@@ -36,8 +36,8 @@ const Nav = () => {
               className={cn(
                 'rounded-md px-4 py-2 font-medium transition',
                 pathname === link.href
-                  ? 'bg-secondary text-white hover:brightness-main'
-                  : 'hover:text-secondary'
+                  ? 'bg-primary text-white hover:brightness-main'
+                  : 'hover:text-primary'
               )}
             >
               {link.name}

@@ -31,7 +31,7 @@ const ToggleFavButton = ({
       className={cn(
         'transition',
         containerClassName,
-        isFav ? 'text-secondary' : 'text-transparent'
+        isFav ? 'text-primary' : 'text-transparent'
       )}
       onClick={() => toggleFavorite(movie)}
       ariaLabel="Add to favorites"
