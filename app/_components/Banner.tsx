@@ -5,7 +5,6 @@ import { TEXTS } from '@/constants/text';
 import { GeneralMovie } from '@/types/GeneralMovie';
 import { getPosterPath } from '@/utils/getPosterPath';
 import Image from 'next/image';
-import React from 'react';
 
 interface bannerProps {
   movie: GeneralMovie;

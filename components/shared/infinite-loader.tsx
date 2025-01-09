@@ -1,5 +1,4 @@
 import { useElementOnScreen } from '@/hooks/useElementOnScreen';
-import React from 'react';
 
 interface Props extends React.PropsWithChildren {
   hasMore: boolean | undefined;

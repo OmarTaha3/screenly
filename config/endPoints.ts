@@ -10,4 +10,5 @@ export const externalEndPoints = {
   movieDetails: (id: string) => `/movie/${id}`,
   movieCast: (id: string) => `/movie/${id}/credits`,
   allGeners: '/genre/movie/list',
+  search: 'search/movie',
 };

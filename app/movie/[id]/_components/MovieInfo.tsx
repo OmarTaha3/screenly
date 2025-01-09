@@ -2,7 +2,7 @@
 import ToggleFavButton from '@/components/shared/ToggleFavButton';
 import WatchNowLink from '@/components/shared/WatchNowLink';
 import { MovieDetails } from '@/types/MovieDetails';
-import React from 'react';
+
 import MoviePoster from './MoviePoster';
 import MovieStatistics from './MovieStatistics';
 import Cast from './Cast';

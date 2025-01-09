@@ -5,6 +5,7 @@ const ArrowLeft = () => (
     viewBox="0 0 1024 1024"
     width={14}
     height={14}
+    fill="currentColor"
   >
     <path
       id="SVGRepo_iconCarrier"

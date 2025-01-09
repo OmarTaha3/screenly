@@ -1,4 +1,3 @@
-import React from 'react';
 import Banner from './_components/Banner';
 import MovieInfo from './_components/MovieInfo';
 import { internalAxios } from '@/config/axiosConfig';

@@ -1,13 +1,15 @@
-import React from 'react';
-
 const ArrowRight = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
     <g id="SVGRepo_iconCarrier">
       <g
-        stroke="#292929"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2.5"
+        strokeWidth="1"
         clipPath="url(#clip0_429_11254)"
       >
         <path d="m10 17 5-5M15 12l-5-5"></path>

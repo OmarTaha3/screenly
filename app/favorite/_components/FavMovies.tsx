@@ -1,6 +1,5 @@
 import MovieCard from '@/components/shared/MovieCard';
 import { useFavoriteMoviesStore } from '@/store/useFavoriteMovieStore';
-import React from 'react';
 
 const FavMovies = () => {
   const movies = useFavoriteMoviesStore((state) => state.favoriteMovies);

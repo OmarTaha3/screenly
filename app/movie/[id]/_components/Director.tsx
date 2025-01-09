@@ -2,7 +2,6 @@ import DirectorSekelton from '@/components/sekelton/DirectorSekelton';
 import { ImageWithFallBack } from '@/components/shared/ImageWithFallBack';
 import { CrewMember } from '@/types/crew';
 import { getPosterPath } from '@/utils/getPosterPath';
-import React from 'react';
 
 interface DirectorProps {
   crew: CrewMember[];
